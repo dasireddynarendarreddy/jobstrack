@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import React from "react";
 
-const API = import.meta.env.VITE_BACKEND_URL;
+
 
 const JobForm = ({ fetchApplications }) => {
   const [form, setForm] = useState({
@@ -20,12 +20,9 @@ const JobForm = ({ fetchApplications }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(typeof API)
-      console.log(`${import.meta.env.VITE_NROM_BACKEND_URL}/${3}`)
-      console.log(API)
-      console.log(import.meta.env.MODE)
-      const res = await axios.post( import.meta.env.MODE=='development'?`${import.meta.env.VITE_NORM_BACKEND_URL}`:`${import.meta.env.VITE_BACKEND_URL}`, form);
-      console.log(res);
+      
+    await axios.post( import.meta.env.MODE=='development'?`${import.meta.env.VITE_NORM_BACKEND_URL}`:`${import.meta.env.VITE_BACKEND_URL}`, form);
+      
     } catch (error) {
       console.error("Error submitting job:", error);
     }

@@ -18,8 +18,7 @@ const JobCard = ({ app, fetchApplications }) => {
   };
 
   const handleStatusUpdate = async () => {
-    console.log(typeof import.meta.env.VITE_BACKEND_URL)
-    console.log(`${import.meta.env.VITE_NORM_BACKEND_URL}/${5}`)
+    
     const updatedStatus = cycleStatus[app.status];
     await axios.put(import.meta.env.MODE=='development'?`${import.meta.env.VITE_NORM_BACKEND_URL}/${app._id}`:`${import.meta.env.VITE_BACKEND_URL}/${app._id}`, { ...app, status: updatedStatus });
     fetchApplications();
