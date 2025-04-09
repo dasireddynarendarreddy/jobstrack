@@ -10,7 +10,7 @@ function App() {
   const [filter, setFilter] = useState("All");
 
   const fetchApplications = async () => {
-    const res = await axios.get(`http://localhost:5000/api/application`);
+    const res = await axios.get( import.meta.env.MODE=='development'?`${import.meta.env.VITE_NORM_BACKEND_URL}`:`${import.meta.env.VITE_BACKEND_URL}`);
     setApplications(res.data);
   };
 
