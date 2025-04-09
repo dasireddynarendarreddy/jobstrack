@@ -20,7 +20,7 @@ const JobForm = ({ fetchApplications }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${API}`, form);
+      const res = await axios.post( import.meta.env.MODE=='development'?import.meta.env.BACKEND_URL:import.meta.env.NORM_BACKEND_URL, form);
       console.log(res);
     } catch (error) {
       console.error("Error submitting job:", error);
