@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 
-const API = import.meta.env.BACKEND_URL;
+const API = import.meta.env.VITE_BACKEND_URL;
 
 const JobCard = ({ app, fetchApplications }) => {
   const handleDelete = async () => {
@@ -18,8 +18,10 @@ const JobCard = ({ app, fetchApplications }) => {
   };
 
   const handleStatusUpdate = async () => {
+    console.log(typeof import.meta.env.VITE_BACKEND_URL)
+    console.log(`${import.meta.env.VITE_NORM_BACKEND_URL}/${5}`)
     const updatedStatus = cycleStatus[app.status];
-    await axios.put(import.meta.env.MODE=='development'?`${import.meta.env.BACKEND_URL}/${app._id}`:`${import.meta.env.NORM_BACKEND_URL}/${app._id}`, { ...app, status: updatedStatus });
+    await axios.put(import.meta.env.MODE=='development'?`${import.meta.env.VITE_NORM_BACKEND_URL}/${app._id}`:`${import.meta.env.VITE_BACKEND_URL}/${app._id}`, { ...app, status: updatedStatus });
     fetchApplications();
   };
   
