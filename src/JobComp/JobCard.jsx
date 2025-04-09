@@ -1,12 +1,12 @@
 import axios from "axios";
 import React from "react";
 
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.BACKEND_URL;
 
 const JobCard = ({ app, fetchApplications }) => {
   const handleDelete = async () => {
     console.log(app._id)
-    await axios.delete(`http://localhost:5000/api/application/${app._id}`);
+    await axios.delete(`${API}/${app._id}`);
     fetchApplications();
   };
 
@@ -19,7 +19,7 @@ const JobCard = ({ app, fetchApplications }) => {
 
   const handleStatusUpdate = async () => {
     const updatedStatus = cycleStatus[app.status];
-    await axios.put(`http://localhost:5000/api/application/${app._id}`, { ...app, status: updatedStatus });
+    await axios.put(`${API}/${app._id}`, { ...app, status: updatedStatus });
     fetchApplications();
   };
 

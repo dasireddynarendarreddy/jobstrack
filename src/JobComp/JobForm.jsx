@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import React from "react";
 
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.BACKEND_URL;
 
 const JobForm = ({ fetchApplications }) => {
   const [form, setForm] = useState({
@@ -20,7 +20,7 @@ const JobForm = ({ fetchApplications }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`http://localhost:5000/api/application`, form);
+      const res = await axios.post(`${API}`, form);
       console.log(res);
     } catch (error) {
       console.error("Error submitting job:", error);
