@@ -31,6 +31,7 @@ This is a fullstack job application tracker built as part of the **Fullstack Dev
 
 GitHub link For FrontendCode:[https://github.com/dasireddynarendarreddy/jobstrack]
 GitHub link For BackEndCode:[https://github.com/dasireddynarendarreddy/jobstrackserver]
+**DAS PROBLEM SOLUTION**:[https://github.com/dasireddynarendarreddy/jobstrack/tree/master/src/DSA.JS]
 
 ## 🤖 AI Tool Used – ChatGPT (GPT-4 by OpenAI)
 
