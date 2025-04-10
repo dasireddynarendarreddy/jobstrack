@@ -10,7 +10,7 @@ const JobCard = ({ app, fetchApplications }) => {
   const handleDelete = async () => {
     console.log(app._id)
     setDelete(true)
-   let del= await axios.delete(`${API}/${app._id}`);
+   let del= await axios.delete(import.meta.env.MODE=='development'?`${import.meta.env.VITE_NORM_BACKEND_URL}/${app._id}`:`${import.meta.env.VITE_BACKEND_URL}/${app._id}`, { ...app, status: updatedStatus });
    console.log("delete",del)
    if(del.status===200)
    {
