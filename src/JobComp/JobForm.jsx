@@ -2,9 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 import React from "react";
 
-
+import './JobForm.css'
 
 const JobForm = ({ fetchApplications }) => {
+  const[submitting,setSubmit]=useState(false)
   const [form, setForm] = useState({
     company: "",
     role: "",
@@ -18,10 +19,16 @@ const JobForm = ({ fetchApplications }) => {
   };
 
   const handleSubmit = async (e) => {
+    setSubmit(true)
     e.preventDefault();
     try {
       
-    await axios.post( import.meta.env.MODE=='development'?`${import.meta.env.VITE_NORM_BACKEND_URL}`:`${import.meta.env.VITE_BACKEND_URL}`, form);
+    let res=await axios.post( import.meta.env.MODE=='development'?`${import.meta.env.VITE_NORM_BACKEND_URL}`:`${import.meta.env.VITE_BACKEND_URL}`, form);
+    console.log(res)
+    if(res.status===201)
+    {
+          setSubmit(false)
+    }
       
     } catch (error) {
       console.error("Error submitting job:", error);
@@ -72,7 +79,7 @@ const JobForm = ({ fetchApplications }) => {
       </div>
       <div className="text-center">
         <button type="submit" className="cursor-pointer p-2 rounded-sm sm:w-auto bg-gray-500 w-fit text-white">
-          ➕ Add Application
+          {submitting?<div className="loader"></div>:"➕ Add Application"}
         </button>
       </div>
     </form>
