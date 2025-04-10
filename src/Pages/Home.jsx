@@ -2,7 +2,8 @@ import JobCard from '../JobComp/JobCard'
 import JobForm from "../JobComp/JobForm"
 import FilterBar from "../JobComp/FilterBar"
 import React from "react";
-
+const JobForm=React.lazy(()=>import('../JobComp/JobForm'))
+const JobCard=React.lazy(()=>import('../JobComp/JobCard'))
 
 const Home = ({ applications, setApplications, fetchApplications, filter, setFilter }) => {
     const filteredApps = Array.isArray(applications)
