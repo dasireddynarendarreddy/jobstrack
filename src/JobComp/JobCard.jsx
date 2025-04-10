@@ -50,8 +50,8 @@ const JobCard = ({ app, fetchApplications }) => {
           <a href={app.link} className="text-blue-600" target="_blank" rel="noreferrer">Job Link</a>
         </div>
         <div className="flex gap-2">
-          <button onClick={handleStatusUpdate}  className="bg-green-500 p-2 rounded-sm cursor-pointer w-fit" variant="secondary">{updating?<div className="loader"></div>:"Next Status"}</button>
-          <button onClick={handleDelete}  className="bg-red-500 p-2 rounded-sm cursor-pointer w-fit" variant="destructive">{del?<div className="loader"></div>:"Delete"}</button>
+          {updating?<div className="loader"></div>:<button onClick={handleStatusUpdate}  className="bg-green-500 p-2 rounded-sm cursor-pointer w-fit" variant="secondary">Next Status</button>}
+          {del?<div className="loader"></div>:<button onClick={handleDelete}  className="bg-red-500 p-2 rounded-sm cursor-pointer w-fit" variant="destructive">Delete</button>}
         </div>
      
     </>

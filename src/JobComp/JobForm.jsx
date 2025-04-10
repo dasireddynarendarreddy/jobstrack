@@ -78,9 +78,9 @@ const JobForm = ({ fetchApplications }) => {
         />
       </div>
       <div className="text-center">
-        <button type="submit" className="cursor-pointer p-2 rounded-sm sm:w-auto bg-gray-500 w-fit text-white">
-          {submitting?<div className="loader"></div>:"➕ Add Application"}
-        </button>
+      {submitting?<div className="loader"></div>:<button type="submit" className="cursor-pointer p-2 rounded-sm sm:w-auto bg-gray-500 w-fit text-white">
+         :➕ Add Application
+        </button>}
       </div>
     </form>
   );
