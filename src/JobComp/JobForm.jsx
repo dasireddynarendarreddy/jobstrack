@@ -66,6 +66,7 @@ const JobForm = ({ fetchApplications }) => {
           name="appliedDate"
           value={form.appliedDate}
           onChange={handleChange}
+          placeholder="date"
           required
           className="w-full max-w-md border border-black p-2 rounded"
         />
