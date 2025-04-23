@@ -39,7 +39,7 @@ function Register() {
     }
     useEffect(()=>{
 
-      if(JSON.parse(localStorage.getItem("tokeninfo"))[0].id)
+      if(localStorage.getItem("tokeninfo"))
       {
         const tokenInfo = JSON.parse(localStorage.getItem("tokeninfo"));
              
