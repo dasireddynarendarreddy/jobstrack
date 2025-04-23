@@ -28,6 +28,7 @@ This is a fullstack job application tracker built as part of the **Fullstack Dev
 
 - **Frontend:** [https://jobstrack.vercel.app](https://jobstrack.vercel.app)
 - **Backend:** [https://your-backend.onrender.com](https://your-backend.onrender.com)
+-**This is also another project that is useful fro students Quiz App integrated With Gemini Ai you can go through **:[https://geminiquizapp.netlify.app/]
 
 GitHub link For FrontendCode:[https://github.com/dasireddynarendarreddy/jobstrack]
 GitHub link For BackEndCode:[https://github.com/dasireddynarendarreddy/jobstrackserver]

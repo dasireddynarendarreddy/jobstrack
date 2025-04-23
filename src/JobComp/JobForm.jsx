@@ -1,17 +1,24 @@
 import { useState } from "react";
 import axios from "axios";
 import React from "react";
-
+import { Userkey } from "../AllRoutes/UI";
 import './JobForm.css'
+import { useContext } from "react";
 
-const JobForm = ({ fetchApplications }) => {
+const JobForm = ({ fetchApplications}) => {
   const[submitting,setSubmit]=useState(false)
+  const{userid,setid,uinfo}=useContext(Userkey)
+  console.log(userid)
+  console.log("the user info is",uinfo)
+  
   const [form, setForm] = useState({
     company: "",
     role: "",
     appliedDate: "",
     status: "Applied",
     link: "",
+    userkey:uinfo[0].uid
+
   });
 
   const handleChange = (e) => {
@@ -20,10 +27,18 @@ const JobForm = ({ fetchApplications }) => {
 
   const handleSubmit = async (e) => {
     setSubmit(true)
+    console.log(form)
     e.preventDefault();
+    let data=JSON.parse(localStorage.getItem("tokeninfo"))[0].jobs
+    let jobinfo=[...data,form]
+    let id=uinfo[0].id
+    let uid=uinfo[0].uid
+    
+   
     try {
       
     let res=await axios.post( import.meta.env.MODE=='development'?`${import.meta.env.VITE_NORM_BACKEND_URL}`:`${import.meta.env.VITE_BACKEND_URL}`, form);
+    localStorage.setItem("tokeninfo",JSON.stringify([{id:id,uid:uid,jobs:jobinfo}]))
     console.log(res)
     if(res.status===201)
     {
@@ -34,9 +49,10 @@ const JobForm = ({ fetchApplications }) => {
       console.error("Error submitting job:", error);
     }
 
-    setForm({ company: "", role: "", appliedDate: "", status: "Applied", link: "" });
+    setForm({ company: "", role: "", appliedDate: "", status: "Applied", link: "",userkey:uinfo[0].uid});
     fetchApplications();
   };
+
 
   return (
     <form
