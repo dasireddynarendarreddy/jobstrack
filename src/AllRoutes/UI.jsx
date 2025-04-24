@@ -26,7 +26,7 @@ function UI() {
     }
     const handleBeforeUnload = (e) => {
       e.preventDefault(); // Some browsers still require this
-      e.returnValue = ""; // This triggers the warning dialog
+      e.returnValue = "Reloading page will causes problem close the tab"; // This triggers the warning dialog
     };
   
     window.addEventListener("beforeunload", handleBeforeUnload);
