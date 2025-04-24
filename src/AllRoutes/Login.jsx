@@ -1,6 +1,6 @@
 import React,{useContext, useState} from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,NavLink} from 'react-router-dom'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -41,9 +41,11 @@ function Login() {
              if (error.response && error.response.data && error.response.data.message) {
                      toast.error(error.response.data.message)
                      console.log("Error message:", error.response.data.message);
+                     setLogin(false)
                    } else {
                     
                      console.log("Unexpected error:", error.message);
+                     setLogin(false)
                    }
           }
        
@@ -94,6 +96,7 @@ function Login() {
       className={login?"w-full bg-blue-200 text-white py-2 rounded-xl hover:bg-blue-700 transition-colors duration-300 cursor-pointer":"w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition-colors duration-300 cursor-pointer"}
     />
   </div>
+  <span>have you registerd?</span><span><NavLink to="/" className="underline decoration-blue-400">register</NavLink></span>
 </form>
 
     </div>

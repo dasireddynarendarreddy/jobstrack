@@ -4,13 +4,13 @@ import React from "react";
 import { Userkey } from "../AllRoutes/UI";
 import './JobForm.css'
 import { useContext } from "react";
-
+import { useNavigate } from "react-router-dom";
 const JobForm = ({ fetchApplications}) => {
   const[submitting,setSubmit]=useState(false)
   const{userid,setid,uinfo}=useContext(Userkey)
   console.log(userid)
   console.log("the user info is",uinfo)
-  
+  const navigate =useNavigate()
   const [form, setForm] = useState({
     company: "",
     role: "",
@@ -52,9 +52,18 @@ const JobForm = ({ fetchApplications}) => {
     setForm({ company: "", role: "", appliedDate: "", status: "Applied", link: "",userkey:uinfo[0].uid});
     fetchApplications();
   };
+  const LogOutUser=()=>{
+    localStorage.removeItem("tokeninfo")
+    navigate("/")
+  
+  }
 
 
   return (
+    <div>
+      <button className="float-left bg-red-500 text-white px-4 py-2 rounded-lg cursor-pointer" onClick={()=>LogOutUser()}>
+  Logout
+</button>
     <form
       className="w-full max-w-3xl mx-auto bg-white shadow-md p-6 rounded-md space-y-4"
       onSubmit={handleSubmit}
@@ -100,6 +109,7 @@ const JobForm = ({ fetchApplications}) => {
         </button>}
       </div>
     </form>
+    </div>
   );
 };
 

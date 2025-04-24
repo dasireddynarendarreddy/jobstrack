@@ -72,72 +72,84 @@ function Register() {
 
     },[])
   return (
-    <div className="min-h-screen items-center justify-center bg-gray-100 px-4">
-    <form 
-      onSubmit={registerUser}
-      className="w-full max-w-sm sm:max-w-md md:max-w-lg bg-white p-6 rounded-2xl shadow-lg space-y-5"
-    >
-      <h2 className="text-2xl font-bold text-center text-gray-800">Register</h2>
-  
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4 py-8">
+  <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-lg space-y-6">
+    
+    <h2 className="text-3xl font-bold text-center text-gray-800">Register</h2>
+
+    <form onSubmit={registerUser} className="space-y-4">
       <div>
-        <label className="block text-gray-700 mb-1" htmlFor="name">Name</label>
-        <input 
-          type="text" 
-          name="name" 
+        <label htmlFor="name" className="block text-gray-700 mb-1">Name</label>
+        <input
+          type="text"
+          name="name"
           id="name"
-          value={data.name} 
+          value={data.name}
           onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
           className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Enter your name"
           required
         />
       </div>
-  
+
       <div>
-        <label className="block text-gray-700 mb-1" htmlFor="mail">Email</label>
-        <input 
-          type="email" 
-          name="mail" 
+        <label htmlFor="mail" className="block text-gray-700 mb-1">Email</label>
+        <input
+          type="email"
+          name="mail"
           id="mail"
-          value={data.mail} 
+          value={data.mail}
           onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
           className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Enter your email"
           required
         />
       </div>
-  
+
       <div>
-        <label className="block text-gray-700 mb-1" htmlFor="password">Password</label>
-        <input 
-          type="password" 
-          name="password" 
+        <label htmlFor="password" className="block text-gray-700 mb-1">Password</label>
+        <input
+          type="password"
+          name="password"
           id="password"
-          value={data.password} 
+          value={data.password}
           onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
           className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Enter your password"
           required
         />
       </div>
-  
+
       <div>
-        <input 
-          type="submit" 
-          disabled={register?true:false}
-          value={register?"Registering...":"register"}
+        <input
+          type="submit"
+          disabled={register}
+          value={register ? "Registering..." : "Register"}
           className="w-full bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition-colors duration-300 cursor-pointer"
         />
-        
       </div>
     </form>
-    <span>OR</span>
-    <div className='w-24'>
-    <button className="w-full bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition-colors duration-300 cursor-pointer justify-center" type="button" onClick={redirectToLogin}>Login</button>
+
+    <div className="flex items-center justify-center gap-2 text-gray-600 mt-4">
+      <div className="w-full h-px bg-gray-300" />
+      <span className="text-sm font-semibold">OR</span>
+      <div className="w-full h-px bg-gray-300" />
     </div>
-    <ToastContainer/>
+
+    <div className="flex justify-center">
+      <button
+        type="button"
+        onClick={redirectToLogin}
+        className="w-40 bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition-colors duration-300 cursor-pointer"
+      >
+        Login
+      </button>
+    </div>
+
+    <ToastContainer />
   </div>
-  
+</div>
+
          
     
   )
