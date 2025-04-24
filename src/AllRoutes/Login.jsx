@@ -19,7 +19,7 @@ function Login() {
       try
       {
 
-        const senddata=await axios.post(import.meta.env.MODE=='development'?`${import.meta.env.VITE_NORM_BACKEND_URL}`:`${import.meta.env.VITE_BACKEND_URL}/login`,logininfo)
+        const senddata=await axios.post(import.meta.env.MODE=='development'?`${import.meta.env.VITE_NORM_BACKEND_URL}/login`:`${import.meta.env.VITE_BACKEND_URL}/login`,logininfo)
        
         
         console.log(senddata.data,senddata.data.tokenid,senddata.data.userval)
@@ -91,7 +91,7 @@ function Login() {
       value={login?"verifying...":"Login"}
       disabled={login?true:false}
 
-      className="w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition-colors duration-300 cursor-pointer"
+      className={login?"w-full bg-blue-200 text-white py-2 rounded-xl hover:bg-blue-700 transition-colors duration-300 cursor-pointer":"w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition-colors duration-300 cursor-pointer"}
     />
   </div>
 </form>
