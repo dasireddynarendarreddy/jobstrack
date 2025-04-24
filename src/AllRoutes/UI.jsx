@@ -12,12 +12,30 @@ function UI() {
   const[userid,setId]=useState('')
   const [uinfo,setUInfo]=useState(null)
   console.log("from ui comp the data is",uinfo)
+  /*useEffect(() => {
+    const tokenData = localStorage.getItem("tokeninfo");
+    if (tokenData) {
+      setUInfo(JSON.parse(tokenData));
+    }
+    console.log("useeffect from ui")
+  }, []);*/
   useEffect(() => {
     const tokenData = localStorage.getItem("tokeninfo");
     if (tokenData) {
       setUInfo(JSON.parse(tokenData));
     }
+    const handleBeforeUnload = (e) => {
+      e.preventDefault(); // Some browsers still require this
+      e.returnValue = ""; // This triggers the warning dialog
+    };
+  
+    window.addEventListener("beforeunload", handleBeforeUnload);
+  
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
   }, []);
+  
  
      
 

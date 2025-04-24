@@ -9,7 +9,7 @@ function Login() {
     const[logininfo,setLoginInfo]=useState({mail:'',password:''})
     const navigate=useNavigate()
     const[login,setLogin]=useState(false)
-    const{setId,application,setApplications}=useContext(Userkey);
+    const{setId,application,setApplications,setUInfo}=useContext(Userkey);
     console.log(setId)
 
     const userLogin=async (e)=>{
@@ -33,6 +33,7 @@ function Login() {
               console.log("the jobs got after login",jobs)
               setApplications(jobs)
               localStorage.setItem("tokeninfo",JSON.stringify([{id:id,uid:uid,jobs:jobs}]))
+              setUInfo(JSON.parse(localStorage.getItem("tokeninfo")))
                 navigate("/home")
             }
           }
