@@ -23,6 +23,7 @@ const Home = ({ applications, setApplications, fetchApplications, filter, setFil
         <input/>
         <JobForm fetchApplications={fetchApplications} userid={userid} />
         <FilterBar filter={filter} setFilter={setFilter} />
+        <span>The No of Jobs That You Have Applied For:{filteredApps.length}</span>
         <div className="grid gap-4 mt-6">
           {filteredApps.length>0?filteredApps.map((app,index) => (
           <JobCard
