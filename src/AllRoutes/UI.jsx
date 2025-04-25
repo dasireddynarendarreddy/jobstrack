@@ -10,7 +10,7 @@ function UI() {
     const [applications, setApplications] = useState([]);
   const [filter, setFilter] = useState("All");
   const[userid,setId]=useState('')
-  const [uinfo,setUInfo]=useState(null)
+  const [uinfo,setUInfo]=useState(localStorage.getItem("tokeninfo")?JSON.parse(localStorage.getItem("tokeninfo")):null)
   console.log("from ui comp the data is",uinfo)
   /*useEffect(() => {
     const tokenData = localStorage.getItem("tokeninfo");
